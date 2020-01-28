@@ -28,11 +28,11 @@ def main():
 
 
 def decrypt(cipher,key):
-    dec=""
+    string =""
     for i in range(len(cipher)):
-        dec += str(cipher[i] ^ key[i])
+        string += chr(cipher[i] ^ key[i])
 
-    return dec
+    return string
 
 if __name__=="__main__":
     main()
