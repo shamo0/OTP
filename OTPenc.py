@@ -13,7 +13,7 @@ def main():
     fdKey=open(sys.argv[1],'rb')
     key=fdKey.read()
 
-    fdMsg=open(sys.argv[2],'r')
+    fdMsg=open(sys.argv[2],'rb')
     message = fdMsg.read()
 
     ciph = encrypt(message,key)
@@ -27,11 +27,12 @@ def main():
     return 
 
 
-def encrypt(msg,key):
-    M=msg.encode()
+def encrypt(M,key):
+    #M=msg.encode()
     c= bytearray(len(M))
     for i in range(len(M)):
         c[i] = key[i] ^ M[i]
+    print(c)
     return c
 
 if __name__=="__main__":

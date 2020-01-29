@@ -18,7 +18,7 @@ def main():
 
     dec = decrypt(Ciph,key)
     
-    fdDec=open(sys.argv[3],"w")
+    fdDec=open(sys.argv[3],"wb")
     fdDec.write(dec)
 
     fdCiph.close()
@@ -28,11 +28,11 @@ def main():
 
 
 def decrypt(cipher,key):
-    string =""
+    #dec=""
+    dec=bytearray(len(key))
     for i in range(len(cipher)):
-        string += chr(cipher[i] ^ key[i])
-
-    return string
+        dec[i] = cipher[i] ^ key[i]
+    return dec
 
 if __name__=="__main__":
     main()
